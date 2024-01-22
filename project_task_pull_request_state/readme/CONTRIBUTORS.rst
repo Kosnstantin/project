@@ -1,3 +1,4 @@
-* Cetmix <https://cetmix.com/>
-    Ivan Sokolov
-    Vladimir Kalmykov
+* `Cetmix <https://cetmix.com/>`__
+
+  * Ivan Sokolov
+  * Vladimir Kalmykov

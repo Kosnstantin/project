@@ -76,16 +76,16 @@ class TestPullRequestState(TransactionCase):
         tasks = self.Task.browse([self.task_1.id, self.task_2.id, self.task_3.id])
         tasks.write({"pr_uri": "https://@my.pr.uri/pr"})
 
-        self.assertEqual(self.task_1.pr_state, "draft", "PR state must be 'draft")
-        self.assertEqual(self.task_2.pr_state, "open", "PR state must be 'open")
-        self.assertEqual(self.task_3.pr_state, "closed", "PR state must be 'closed")
+        self.assertEqual(self.task_1.pr_state, "draft", "PR state must be 'draft'")
+        self.assertEqual(self.task_2.pr_state, "open", "PR state must be 'open'")
+        self.assertEqual(self.task_3.pr_state, "closed", "PR state must be 'closed'")
 
         # Change pr_state
         tasks.write({"pr_state": "closed"})
 
-        self.assertEqual(self.task_1.pr_state, "closed", "PR state must be 'closed")
-        self.assertEqual(self.task_2.pr_state, "closed", "PR state must be 'closed")
-        self.assertEqual(self.task_3.pr_state, "closed", "PR state must be 'closed")
+        self.assertEqual(self.task_1.pr_state, "closed", "PR state must be 'closed'")
+        self.assertEqual(self.task_2.pr_state, "closed", "PR state must be 'closed'")
+        self.assertEqual(self.task_3.pr_state, "closed", "PR state must be 'closed'")
 
     def test_pull_request_state_set_explicit(self):
         """Set PR state from vals when PR URI is added to task"""
@@ -93,9 +93,9 @@ class TestPullRequestState(TransactionCase):
         tasks = self.Task.browse([self.task_1.id, self.task_2.id, self.task_3.id])
         tasks.write({"pr_uri": "https://@my.pr.uri/pr", "pr_state": "merged"})
 
-        self.assertEqual(self.task_1.pr_state, "merged", "PR state must be 'merged")
-        self.assertEqual(self.task_2.pr_state, "merged", "PR state must be 'merged")
-        self.assertEqual(self.task_3.pr_state, "merged", "PR state must be 'merged")
+        self.assertEqual(self.task_1.pr_state, "merged", "PR state must be 'merged'")
+        self.assertEqual(self.task_2.pr_state, "merged", "PR state must be 'merged'")
+        self.assertEqual(self.task_3.pr_state, "merged", "PR state must be 'merged'")
 
     def test_create_task_with_uri(self):
         """Add PR URI when task created"""
@@ -130,9 +130,9 @@ class TestPullRequestState(TransactionCase):
         ]
         test_tasks = self.Task.create(test_tasks_data)
 
-        self.assertEqual(test_tasks[0].pr_state, "draft", "PR state must be 'draft")
-        self.assertEqual(test_tasks[1].pr_state, "open", "PR state must be 'open")
-        self.assertEqual(test_tasks[2].pr_state, "closed", "PR state must be 'closed")
+        self.assertEqual(test_tasks[0].pr_state, "draft", "PR state must be 'draft'")
+        self.assertEqual(test_tasks[1].pr_state, "open", "PR state must be 'open'")
+        self.assertEqual(test_tasks[2].pr_state, "closed", "PR state must be 'closed'")
 
     def test_set_pr_state(self):
         """Test _set_pr_state function"""
@@ -142,10 +142,10 @@ class TestPullRequestState(TransactionCase):
         self._set_default_pr_state("closed")
 
         self.task_3.write({"pr_uri": "https://@my.pr.uri/new_pr"})
-        self.assertEqual(self.task_3.pr_state, "closed", "PR state must be 'closed")
+        self.assertEqual(self.task_3.pr_state, "closed", "PR state must be 'closed'")
 
         self.task_1.write({"pr_uri": "https://@my.pr.uri/pr"})
-        self.assertEqual(self.task_1.pr_state, "draft", "PR state must be 'draft")
+        self.assertEqual(self.task_1.pr_state, "draft", "PR state must be 'draft'")
         # Remove PR URI
         self.task_1.write({"pr_uri": ""})
         self.assertFalse(self.task_1.pr_state, "PR state must be False")
@@ -158,7 +158,7 @@ class TestPullRequestState(TransactionCase):
                 "pr_uri": "https://@my.pr.uri/pr",
             }
         )
-        self.assertEqual(test_task.pr_state, "closed", "PR state must be 'closed")
+        self.assertEqual(test_task.pr_state, "closed", "PR state must be 'closed'")
 
     def test_set_pr_state_default(self):
         """Set values for the pr_state_default parameter"""

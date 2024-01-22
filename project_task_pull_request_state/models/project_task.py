@@ -3,11 +3,11 @@
 from odoo import api, fields, models
 
 
-class ProjectTaskState(models.Model):
+class ProjectTask(models.Model):
     _inherit = "project.task"
 
     pr_state = fields.Selection(
-        selection=lambda self: self._selection_pr_state(),
+        selection=lambda self: self.selection_pr_state(),
         tracking=True,
         copy=False,
         string="PR State",
@@ -17,7 +17,7 @@ class ProjectTaskState(models.Model):
         readonly=False,
     )
 
-    def _selection_pr_state(self):
+    def selection_pr_state(self):
         """Function to select the state of the pull request"""
         return [
             ("open", "Open"),

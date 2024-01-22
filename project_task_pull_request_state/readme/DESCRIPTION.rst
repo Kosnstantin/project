@@ -2,5 +2,5 @@ This module extends functionality of the project_task_pull_request module. It ad
 "State" field to Task alongside with PR URI field.
 
 Following pre-defined states are available: "Draft", "Open", "Merged", "Closed". You can
-add or modify this list easily by overriding the "\_selection_pr_state" function in the
+add or modify this list easily by overriding the "selection_pr_state" function in the
 "project.task" model
